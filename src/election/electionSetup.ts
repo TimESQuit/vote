@@ -24,7 +24,7 @@ const choices = ["chocolate", "vanilla", "strawberry"].map((c, i) => ({
 
 const allChoiceIds: string[] = [];
 const allChoices = choices.reduce((acc, cur) => {
-  const idString = `choice${cur.id}`;
+  const idString = `choice-${cur.id}`;
   allChoiceIds.push(idString);
   return {
     ...acc,

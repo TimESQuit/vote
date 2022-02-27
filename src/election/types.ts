@@ -1,22 +1,31 @@
-import { electionSteps } from "./utils";
+import { electionSteps } from "./electionStepFunctions/electionSteps";
+
+export type choiceId = number;
+export type choiceIds = choiceId[] | [];
+
+export interface ChoiceIdObj {
+  [key: string]: {
+    id: choiceId;
+    name: string;
+  };
+}
 
 export interface IChoices {
-  byId: {
-    [key: string]: {
-      id: number;
-      name: string;
-    };
-  };
+  byId: ChoiceIdObj;
   allIds: string[];
 }
 
-export interface IVotes {
-  byId: {
-    [key: string]: {
-      id: number;
-      ranks: number[];
-    };
+export type voteId = number;
+
+export interface VoteIdObj {
+  [key: string]: {
+    id: voteId;
+    ranks: number[];
   };
+}
+
+export interface IVotes {
+  byId: VoteIdObj;
   allIds: string[];
 }
 
@@ -27,8 +36,8 @@ export interface IElectionState {
   votes: IVotes;
   maxWinners: number;
   // Numbers in eliminated/winners refer to choice Ids.
-  eliminated: number[] | [];
-  winners: number[] | [];
+  eliminated: choiceIds;
+  winners: choiceIds;
   // Step to currently display in graph.
   currentStep: ElectionStepKey;
   // currentStep is added to stepHistory when election is advanced.
