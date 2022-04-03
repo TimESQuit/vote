@@ -22,6 +22,20 @@ const choices = ["chocolate", "vanilla", "strawberry"].map((c, i) => ({
   name: c,
 }));
 
+
+const idStringTest = (id: number) => `choice-${id}`;
+const choicesTest = ["bills", "steelers", "ravens"];
+const allChoiceIdStringsTest = choicesTest.map((c, i ) => ({ id: idStringTest(i), name: c }))
+const allChoicesObjTest = choicesTest.reduce((acc, cur, idx) => {
+  return {
+    ...acc,
+    [idStringTest(idx)]: {
+      id: idx,
+      name: cur,
+    }
+  }
+}, {})
+
 const allChoiceIds: string[] = [];
 const allChoices = choices.reduce((acc, cur) => {
   const idString = `choice-${cur.id}`;

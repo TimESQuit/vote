@@ -9,7 +9,7 @@ import {
   countChoiceRanks,
 } from "./utils";
 
-export const electionSlice = createSlice({
+  export const electionSlice = createSlice({
   name: "election",
   initialState: { ...initialElectionData },
   reducers: {
